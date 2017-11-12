@@ -1,0 +1,38 @@
+{
+	"name": "ld-rr-ts-starter",
+	"version": "1.0.0",
+	"main": "index.tsx",
+	"scripts": {
+		"start": "webpack-dev-server",
+		"build": "webpack"
+	},
+	"betterScripts": {
+		"dev": {
+			"command": "webpack-dev-server --profile --progress",
+			"env": {
+				"NODE_ENV": "development"
+			}
+		},
+		"build": {
+			"command": "webpack --display-chunks --progress",
+			"env": {
+				"NODE_ENV": "production"
+			}
+		}
+	},
+	"license": "ISC",
+	"dependencies": {
+		"react": "^16.0.0",
+		"react-dom": "^16.0.0"
+	},
+	"devDependencies": {
+		"@types/react": "^16.0.22",
+		"@types/react-dom": "^16.0.3",
+		"awesome-typescript-loader": "^3.3.0",
+		"clean-webpack-plugin": "^0.1.17",
+		"html-webpack-plugin": "^2.30.1",
+		"path": "^0.12.7",
+		"typescript": "^2.6.1",
+		"webpack": "^3.8.1"
+	}
+}

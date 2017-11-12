@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+	"lib": [
+	  "es5",
+	  "es6",
+	  "es7",
+	  "dom"
+	],
+	"module": "esnext", // для поддержки динамического импорта модулей
+	"target": "es5", // компилируем ts код в js код версии ES5
+	"sourceMap": true,
+	"jsx": "react" // опция для поддержи синтаксиса JSX
+  },
+  "exclude": [
+	"node_modules"
+  ]
+}
