@@ -1,32 +1,28 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 
-import Simple from "./simple";
-import withCount from "./hoc/withCount";
-import DisplayCount from "./hoc/displayCount";
-import LazyLoad from "./lazy/lazyLoad";
+import { Provider } from "react-redux";
+import configureStore from "./store";
+import Field from "./components/Field";
 
-interface IAppProps{
-    title: string;
-}
-const Counter = withCount(DisplayCount);
-const load = () => import("./lazy/lazyComponent");
+/**
+ * То самое место, где качестве initialState ожидают
+ * window.__INITIAL_STATE__, но в нашем случае можно передать
+ * подходящий объект или пустоту.
+ */
+const store = configureStore();
 
-const App = ({title}: IAppProps) => <div>
-    <h1>{title}</h1>
 
-    <Simple
-        customProperty="Simple field component"
-        placeholder="type some text..."
-        onFocus={() => console.log("is focused!")}
-    />
-
-    <Counter title="High Order Component" increment={1} />
-
-    <LazyLoad load={load}/>
-</div>;
+const App = () => (
+    <Provider store={store}>
+        <div>
+            <h1>Hello, Redux!</h1>
+            <Field placeholder="I like dev tools!" />
+        </div>
+    </Provider>
+);
 
 ReactDOM.render(
-    <App  title="Hello, React!"/>,
+    <App />,
     document.getElementById('root')
 );
