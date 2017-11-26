@@ -1,10 +1,17 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
+import "core-js/es6/promise";
+import "core-js/es6/map";
+import "core-js/es6/set";
 
 import { Provider } from "react-redux";
 import configureStore from "./store";
 import Field from "./components/Field";
 import Users from "./components/Users";
+
+if(typeof window.requestAnimationFrame !== "function"){
+    window.requestAnimationFrame = (callback: FrameRequestCallback) => window.setTimeout(callback, 0);
+}
 
 /**
  * То самое место, где качестве initialState ожидают
